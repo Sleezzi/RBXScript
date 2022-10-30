@@ -1,0 +1,111 @@
+--		SCRIPT BY SLEEZZI
+-- 		Discord: https://discord.gg/kzpUQaNqyV
+
+local Frame = Instance.new("Frame")
+		Frame.Name = "Role Changer"
+		Frame.Size = UDim2.new(0.2, 0, 0.322, 0)
+		Frame.Position = UDim2.new(0.0, 0, 0.0, 0)
+		Frame.BackgroundColor3 = Color3.new(1, 1, 1)
+		Frame.Parent = ScreenGui
+
+		local Text = Instance.new("TextLabel")
+		Text.Parent = Frame
+		Text.Position = UDim2.new(0, 0, 0, 0)
+		Text.Size = UDim2.new(1, 0, 0.27, 0)
+		Text.Text = "Script By Sleezzi"
+		Text.TextScaled = true
+		Text.BackgroundColor3 = Color3.new(1, 1, 1)
+
+		local Swat = Instance.new("ImageButton")
+		Swat.Name = "Swat"
+		Swat.Parent = Frame
+		Swat.BackgroundColor3 = Color3.new(1, 1, 1)
+		Swat.Position = UDim2.new(0, 0, 0.27, 0)
+		Swat.Size = UDim2.new(0.5, 0, 0.73, 0)
+		Swat.Image = "rbxassetid://4793807139"
+
+		local Officier = Instance.new("ImageButton")
+		Officier.Name = "Officier"
+		Officier.Parent = Frame
+		Officier.Position = UDim2.new(0.5, 0, 0.27, 0)
+		Officier.Size = UDim2.new(0.5, 0, 0.73, 0)
+		Officier.BackgroundColor3 = Color3.new(1, 1, 1)
+		Officier.Image = "rbxassetid://4645788192"
+
+		Officier.MouseButton1Down:Connect(function()
+			local A_1 = "Gun"
+			local A_2 = true
+			local Event = game:GetService("ReplicatedStorage").RemoteEvents.OutsideRole
+			Event:FireServer(A_1, A_2)
+		end)
+
+		Swat.MouseButton1Down:Connect(function()
+			local A_1 = "SwatGun"
+			local A_2 = true
+			local Event = game:GetService("ReplicatedStorage").RemoteEvents.OutsideRole
+			Event:FireServer(A_1, A_2)
+		end)
+
+		local function updateInput(input)
+			local delta = input.Position - dragStartFrame
+			local position = UDim2.new(StartPosFrame.X.Scale, StartPosFrame.X.Offset + delta.X, StartPosFrame.Y.Scale, StartPosFrame.Y.Offset + delta.Y)
+			game:GetService("TweenService"):Create(Frame, TweenInfo.new(dragSpeedFrame), {Position = position}):Play()
+		end
+		Frame.InputBegan:Connect(function(input)
+			if (input.UserInputType == Enum.UserInputType.MouseButton1) then
+				dragToggleFrame = true
+				dragStartFrame = input.Position
+				StartPosFrame = Frame.Position
+				input.Changed:Connect(function()
+					if input.UserInputState == Enum.UserInputState.End then
+						dragToggleFrame = false
+					end
+				end)
+			end
+		end)
+		UIS.InputChanged:Connect(function(input)
+			if input.UserInputType == Enum.UserInputType.MouseMovement then
+				if dragToggleFrame then
+					updateInput(input)
+				end
+			end
+		end)
+		if not Players.LocalPlayer.PlayerGui:FindFirstChild("HelpKey") then
+			local ScreenGui = Instance.new("ScreenGui")
+			ScreenGui.Parent = Players.LocalPlayer.PlayerGui
+			ScreenGui.Name = "HelpKey"
+			local Frame = Instance.new("Frame")
+			Frame.Parent = ScreenGui
+			Frame.Name = "Frame"
+			Frame.Size = UDim2.new(0.23, 0 , 0.142, 0)
+			Frame.Position = UDim2.new(0.385, 0, 0.429, 0)	
+			local CloseButton = Instance.new("TextButton")
+			CloseButton.Parent = Frame
+			CloseButton.Name = "Button"
+			CloseButton.Text = "X"
+			CloseButton.TextScaled = true
+			CloseButton.BackgroundColor3 = Color3.new(1, 0, 0)
+			CloseButton.Size = UDim2.new(0.157, 0, 0.5, 0)
+			CloseButton.Position = UDim2.new(1, 0, -0.5, 0)
+			local Text = Instance.new("TextLabel")
+			Text.Parent = Frame
+			Text.Text = 'The key to hide the Gui is "V"'
+			Text.TextScaled = true
+			Text.BackgroundColor3 = Color3.new(1, 1, 1)
+			Text.Position = UDim2.new(0, 0, 0, 0)
+			Text.Size = UDim2.new(1, 0, 1, 0)
+		end
+		Players.LocalPlayer.PlayerGui:FindFirstChild("HelpKey").Frame.Button.MouseButton1Down:Connect(function()
+			Players.LocalPlayer.PlayerGui:FindFirstChild("HelpKey").Frame.Visible = false
+		end)
+		UIS.InputBegan:Connect(function(UserInput)
+			if UserInput.UserInputType == Enum.UserInputType.Keyboard and UserInput.KeyCode == Enum.KeyCode.V then
+				if InputKeyHold then
+					Frame.Visible = false
+					InputKeyHold = false
+				else
+					Frame.Visible = true
+					InputKeyHold = true
+				end
+			end
+		end)
