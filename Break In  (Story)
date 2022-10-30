@@ -1,10 +1,4 @@
-	--		SCRIPT BY SLEEZZI
-	-- 		Discord: https://discord.gg/kzpUQaNqyV
-
-if ScreenGui:FindFirstChild("Break In (Story)") then
-		ScreenGui:FindFirstChild("Break In (Story)"):Destroy()
-	else
-		local White = Color3.new(1, 1, 1)
+local White = Color3.new(1, 1, 1)
 		local Gray = Color3.new(0.666667, 0.666667, 0.666667)
 		local Amount = 1
 		local FriendCat = false
@@ -642,4 +636,3 @@ if ScreenGui:FindFirstChild("Break In (Story)") then
 				end
 			end
 		end)
-	end
