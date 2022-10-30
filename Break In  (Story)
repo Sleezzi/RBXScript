@@ -1,0 +1,645 @@
+	--		SCRIPT BY SLEEZZI
+	-- 		Discord: https://discord.gg/kzpUQaNqyV
+
+if ScreenGui:FindFirstChild("Break In (Story)") then
+		ScreenGui:FindFirstChild("Break In (Story)"):Destroy()
+	else
+		local White = Color3.new(1, 1, 1)
+		local Gray = Color3.new(0.666667, 0.666667, 0.666667)
+		local Amount = 1
+		local FriendCat = false
+		local HealLoop = false
+		local SprintV = false
+		local running = false
+
+		local Frame = Instance.new("Frame")
+		Frame.Name = "Break In (Story)"
+		Frame.Size = UDim2.new(0.543, 0,0.659, 0)
+		Frame.Position = UDim2.new(0.229, 0, 0.17, 0)
+		Frame.BackgroundColor3 = White
+		Frame.Active = true
+		Frame.Parent = ScreenGui
+
+		local Text = Instance.new("TextLabel")
+		Text.Parent = Frame
+		Text.Position = UDim2.new(0, 0, 0, 0)
+		Text.Size = UDim2.new(1, 0, 0.089, 0)
+		Text.Text = "Script By Sleezzi"
+		Text.TextScaled = true
+		Text.BackgroundColor3 = White
+
+		local RemoteButton = Instance.new("TextButton")
+		RemoteButton.Parent = Frame
+		RemoteButton.Name = "RemoteButton"
+		RemoteButton.Size = UDim2.new(0.251, 0, 0.107, 0)
+		RemoteButton.Position = UDim2.new(0, 0, 0.088, 0)
+		RemoteButton.Text = "Remote"
+		RemoteButton.TextScaled = true
+		RemoteButton.BackgroundColor3 = Gray
+
+		local RemoteFrame = Instance.new("Frame")
+		RemoteFrame.Parent = Frame
+		RemoteFrame.Name = "RemoteFrame"
+		RemoteFrame.Size = UDim2.new(1, 0, 0.806, 0)
+		RemoteFrame.Position = UDim2.new(0, 0, 0.194, 0)
+		RemoteFrame.BackgroundColor3 = White
+		RemoteFrame.Visible = false
+
+		local BefriendCat = Instance.new("TextButton")
+		BefriendCat.Parent = RemoteFrame
+		BefriendCat.Name = "BefriendCat"
+		BefriendCat.Text = "Befriend Cat"
+		BefriendCat.TextScaled = true
+		BefriendCat.Size = UDim2.new(0.2, 0, 0.159, 0)
+		BefriendCat.Position = UDim2.new(0.2, 0, 0, 0)
+		BefriendCat.BackgroundColor3 = White
+
+		local RemoveTool = Instance.new("TextButton")
+		RemoveTool.Parent = RemoteFrame
+		RemoveTool.Name = "RemoveTool"
+		RemoveTool.Text = "Remove Tool"
+		RemoveTool.TextScaled = true
+		RemoveTool.Position = UDim2.new(0.801, 0, 0, 0)
+		RemoveTool.Size = UDim2.new(0.2, 0, 0.159, 0)
+		RemoveTool.BackgroundColor3 = White
+
+		local OpenSafe = Instance.new("TextButton")
+		OpenSafe.Parent = RemoteFrame
+		OpenSafe.Name = "OpenSafe"
+		OpenSafe.Text = "Open Safe"
+		OpenSafe.TextScaled = true
+		OpenSafe.Size = UDim2.new(0.2, 0, 0.159, 0)
+		OpenSafe.Position = UDim2.new(0, 0, 0, 0)
+		OpenSafe.BackgroundColor3 = White
+
+		local KillEnemies = Instance.new("TextButton")
+		KillEnemies.Parent = RemoteFrame
+		KillEnemies.Name = "KillEnemies"
+		KillEnemies.Text = "Kill Enemies"
+		KillEnemies.TextScaled = true
+		KillEnemies.Position = UDim2.new(0.4, 0, 0, 0)
+		KillEnemies.Size = UDim2.new(0.2, 0, 0.159, 0)
+		KillEnemies.BackgroundColor3 = White
+
+		local Heal = Instance.new("TextButton")
+		Heal.Parent = RemoteFrame
+		Heal.Name = "Heal"
+		Heal.Text = "Heal"
+		Heal.TextScaled = true
+		Heal.Position = UDim2.new(0.6, 0, 0, 0)
+		Heal.Size = UDim2.new(0.2, 0, 0.159, 0)
+		Heal.BackgroundColor3 = White
+
+		local HealInALoop = Instance.new("TextButton")
+		HealInALoop.Name = "HealInALoop"
+		HealInALoop.Parent = RemoteFrame
+		HealInALoop.Text = "Heal in a loop"
+		HealInALoop.TextScaled = true
+		HealInALoop.Position = UDim2.new(0, 0, 0.159, 0)
+		HealInALoop.Size = UDim2.new(0.2, 0, 0.159, 0)
+		HealInALoop.BackgroundColor3 = White
+
+		local TPButton = Instance.new("TextButton")
+		TPButton.Parent = Frame
+		TPButton.Name = "TPButton"
+		TPButton.Size = UDim2.new(0.251, 0, 0.107, 0)
+		TPButton.Position = UDim2.new(0.251, 0, 0.088, 0)
+		TPButton.Text = "TP"
+		TPButton.TextScaled = true
+		TPButton.BackgroundColor3 = Gray
+
+		local TPFrame = Instance.new("Frame")
+		TPFrame.Name = "TP"
+		TPFrame.Parent = Frame
+		TPFrame.Size = UDim2.new(1, 0, 0.806, 0)
+		TPFrame.Position = UDim2.new(0, 0, 0.194, 0)
+		TPFrame.BackgroundColor3 = White
+		TPFrame.Visible = false
+
+		local House = Instance.new("TextButton")
+		House.Parent = TPFrame
+		House.Name = "House"
+		House.Text = "House"
+		House.TextScaled = true
+		House.Size = UDim2.new(0.2, 0, 0.159, 0)
+		House.Position = UDim2.new(0.2, 0, 0, 0)
+		House.BackgroundColor3 = White
+
+		local Bassement = Instance.new("TextButton")
+		Bassement.Parent = TPFrame
+		Bassement.Name = "Bassement"
+		Bassement.Text = "Bassement"
+		Bassement.TextScaled = true
+		Bassement.Position = UDim2.new(0.801, 0, 0, 0)
+		Bassement.Size = UDim2.new(0.2, 0, 0.159, 0)
+		Bassement.BackgroundColor3 = White
+
+		local BossRoom = Instance.new("TextButton")
+		BossRoom.Parent = TPFrame
+		BossRoom.Name = "BossRoom"
+		BossRoom.Text = "Boss Room"
+		BossRoom.TextScaled = true
+		BossRoom.Size = UDim2.new(0.2, 0, 0.159, 0)
+		BossRoom.Position = UDim2.new(0.0, 0, 0.159, 0)
+		BossRoom.BackgroundColor3 = White
+
+
+		local Attic = Instance.new("TextButton")
+		Attic.Parent = TPFrame
+		Attic.Name = "Attic"
+		Attic.Text = "Attic"
+		Attic.TextScaled = true
+		Attic.Size = UDim2.new(0.2, 0, 0.159, 0)
+		Attic.Position = UDim2.new(0.4, 0, 0, 0)
+		Attic.BackgroundColor3 = White
+
+		local Store = Instance.new("TextButton")
+		Store.Parent = TPFrame
+		Store.Name = "Store"
+		Store.Text = "Store"
+		Store.TextScaled = true
+		Store.Position = UDim2.new(0, 0, 0, 0)
+		Store.Size = UDim2.new(0.2, 0, 0.159, 0)
+		Store.BackgroundColor3 = White
+
+		local Sewer = Instance.new("TextButton")
+		Sewer.Parent = TPFrame
+		Sewer.Name = "Sewer"
+		Sewer.Text = "Sewer"
+		Sewer.TextScaled = true
+		Sewer.Position = UDim2.new(0.6, 0, 0, 0)
+		Sewer.Size = UDim2.new(0.2, 0, 0.159, 0)
+		Sewer.BackgroundColor3 = White
+
+		local GiveButton = Instance.new("TextButton")
+		GiveButton.Parent = Frame
+		GiveButton.Name = "GiveButton"
+		GiveButton.Size = UDim2.new(0.251, 0, 0.107, 0)
+		GiveButton.Position = UDim2.new(0.502, 0, 0.088, 0)
+		GiveButton.Text = "Give"
+		GiveButton.TextScaled = true
+		GiveButton.BackgroundColor3 = Gray
+
+		local GiveFrame = Instance.new("Frame")
+		GiveFrame.Name = "Give"
+		GiveFrame.Parent = Frame
+		GiveFrame.Size = UDim2.new(1, 0, 0.806, 0)
+		GiveFrame.Position = UDim2.new(0, 0, 0.194, 0)
+		GiveFrame.BackgroundColor3 = White
+
+		local Cola = Instance.new("TextButton")
+		Cola.Parent = GiveFrame
+		Cola.Name = "Cola"
+		Cola.Text = "Cola"
+		Cola.TextScaled = true
+		Cola.Size = UDim2.new(0.2, 0, 0.159, 0)
+		Cola.Position = UDim2.new(0.2, 0, 0, 0)
+		Cola.BackgroundColor3 = White
+
+		local Apple = Instance.new("TextButton")
+		Apple.Parent = GiveFrame
+		Apple.Name = "Apple"
+		Apple.Text = "Apple"
+		Apple.TextScaled = true
+		Apple.Position = UDim2.new(0.801, 0, 0, 0)
+		Apple.Size = UDim2.new(0.2, 0, 0.159, 0)
+		Apple.BackgroundColor3 = White
+
+		local Medkit = Instance.new("TextButton")
+		Medkit.Parent = GiveFrame
+		Medkit.Name = "Medkit"
+		Medkit.Text = "Medkit"
+		Medkit.TextScaled = true
+		Medkit.Size = UDim2.new(0.2, 0, 0.159, 0)
+		Medkit.Position = UDim2.new(0.4, 0, 0, 0)
+		Medkit.BackgroundColor3 = White
+
+		local Lolipop = Instance.new("TextButton")
+		Lolipop.Parent = GiveFrame
+		Lolipop.Name = "Lolipop"
+		Lolipop.Text = "Lolipop"
+		Lolipop.TextScaled = true
+		Lolipop.Position = UDim2.new(0, 0, 0, 0)
+		Lolipop.Size = UDim2.new(0.2, 0, 0.159, 0)
+		Lolipop.BackgroundColor3 = White
+
+		local Chips = Instance.new("TextButton")
+		Chips.Parent = GiveFrame
+		Chips.Name = "Chips"
+		Chips.Text = "Chips"
+		Chips.TextScaled = true
+		Chips.Position = UDim2.new(0.6, 0, 0, 0)
+		Chips.Size = UDim2.new(0.2, 0, 0.159, 0)
+		Chips.BackgroundColor3 = White
+
+		local Key = Instance.new("TextButton")
+		Key.Parent = GiveFrame
+		Key.Name = "Key"
+		Key.Text = "Key"
+		Key.TextScaled = true
+		Key.Size = UDim2.new(0.2, 0, 0.159, 0)
+		Key.Position = UDim2.new(0.2, 0, 0.159, 0)
+		Key.BackgroundColor3 = White
+
+		local Teddy = Instance.new("TextButton")
+		Teddy.Parent = GiveFrame
+		Teddy.Name = "Teddy"
+		Teddy.Text = "Teddy"
+		Teddy.TextScaled = true
+		Teddy.Position = UDim2.new(0.801, 0, 0.159, 0)
+		Teddy.Size = UDim2.new(0.2, 0, 0.159, 0)
+		Teddy.BackgroundColor3 = White
+
+		local Sword = Instance.new("TextButton")
+		Sword.Parent = GiveFrame
+		Sword.Name = "Sword"
+		Sword.Text = "Sword"
+		Sword.TextScaled = true
+		Sword.Size = UDim2.new(0.2, 0, 0.159, 0)
+		Sword.Position = UDim2.new(0.4, 0, 0.159, 0)
+		Sword.BackgroundColor3 = White
+
+		local Plank = Instance.new("TextButton")
+		Plank.Parent = GiveFrame
+		Plank.Name = "Plank"
+		Plank.Text = "Plank"
+		Plank.TextScaled = true
+		Plank.Position = UDim2.new(0, 0, 0.159, 0)
+		Plank.Size = UDim2.new(0.2, 0, 0.159, 0)
+		Plank.BackgroundColor3 = White
+
+		local Cookie = Instance.new("TextButton")
+		Cookie.Parent = GiveFrame
+		Cookie.Name = "Cookie"
+		Cookie.Text = "Cookie"
+		Cookie.TextScaled = true
+		Cookie.Position = UDim2.new(0.6, 0, 0.159, 0)
+		Cookie.Size = UDim2.new(0.2, 0, 0.159, 0)
+		Cookie.BackgroundColor3 = White
+
+		local AmountTextBox = Instance.new("TextBox")
+		AmountTextBox.Name = "AmountTextBox"
+		AmountTextBox.Text = Amount
+		AmountTextBox.TextScaled = true
+		AmountTextBox.Parent = GiveFrame
+		AmountTextBox.Size = UDim2.new(0.2, 0, 0.159, 0)
+		AmountTextBox.Position = UDim2.new(0.705, 0, 0.84, 0)
+
+		local AmountButton = Instance.new("TextButton")
+		AmountButton.Name = "AmountButton"
+		AmountButton.Parent = GiveFrame
+		AmountButton.Text = "Set Amount"
+		AmountButton.TextScaled = true
+		AmountButton.BackgroundColor3 = Color3.new(0, 1, 0)
+		AmountButton.Size = UDim2.new(0.095, 0, 0.16, 0)
+		AmountButton.Position = UDim2.new(0.905, 0, 0.84, 0)
+
+		local MiscButton = Instance.new("TextButton")
+		MiscButton.Parent = Frame
+		MiscButton.Name = "MiscButton"
+		MiscButton.Text = "Misc"
+		MiscButton.TextScaled = true
+		MiscButton.Size = UDim2.new(0.249, 0, 0.105, 0)
+		MiscButton.Position = UDim2.new(0.753, 0, 0.087, 0)
+		MiscButton.BackgroundColor3 = Gray
+
+		local MiscFrame = Instance.new("Frame")
+		MiscFrame.Name = "MiscFrame"
+		MiscFrame.Parent = Frame
+		MiscFrame.Size = UDim2.new(1, 0, 0.806, 0)
+		MiscFrame.Position = UDim2.new(0, 0, 0.194, 0)
+		MiscFrame.BackgroundColor3 = White
+		MiscFrame.Visible = false
+
+		local Sprint = Instance.new("TextButton")
+		Sprint.Parent = MiscFrame
+		Sprint.Name = "Sprint"
+		Sprint.Text = "Sprint"
+		Sprint.TextScaled = true
+		Sprint.Size = UDim2.new(0.322, 0, 0.143, 0)
+		Sprint.Position = UDim2.new(0, 0, 0, 0)
+		Sprint.BackgroundColor3 = White
+
+		local SpeedTextBox = Instance.new("TextBox")
+		SpeedTextBox.Parent = MiscFrame
+		SpeedTextBox.Name = "SpeedTextBox"
+		SpeedTextBox.Text = game.Workspace:WaitForChild(game.Players.LocalPlayer.Name):WaitForChild("Humanoid").WalkSpeed
+		SpeedTextBox.TextScaled = true
+		SpeedTextBox.Size = UDim2.new(0.187, 0, 0.143, 0)
+		SpeedTextBox.Position = UDim2.new(0, 0, 0.143, 0)
+		SpeedTextBox.BackgroundColor3 = White
+
+		local SpeedButton = Instance.new("TextButton")
+		SpeedButton.Parent = MiscFrame
+		SpeedButton.Name = "SpeedButton"
+		SpeedButton.Text = "Set WalkSpeed"
+		SpeedButton.TextScaled = true
+		SpeedButton.Position = UDim2.new(0.188, 0, 0.143, 0)
+		SpeedButton.Size = UDim2.new(0.134, 0, 0.143, 0)
+		SpeedButton.BackgroundColor3 = Color3.new(0, 1, 0)
+
+
+		local JumpTextBox = Instance.new("TextBox")
+		JumpTextBox.Parent = MiscFrame
+		JumpTextBox.Name = "JumpTextBox"
+		JumpTextBox.Text = game.Workspace:WaitForChild(game.Players.LocalPlayer.Name):WaitForChild("Humanoid").JumpPower
+		JumpTextBox.TextScaled = true
+		JumpTextBox.Size = UDim2.new(0.187, 0, 0.143, 0)
+		JumpTextBox.Position = UDim2.new(0, 0, 0.273, 0)
+		JumpTextBox.BackgroundColor3 = White
+
+		local JumpButton = Instance.new("TextButton")
+		JumpButton.Parent = MiscFrame
+		JumpButton.Name = "JumpButton"
+		JumpButton.Text = "Set JumpPower"
+		JumpButton.TextScaled = true
+		JumpButton.Position = UDim2.new(0.188, 0, 0.273, 0)
+		JumpButton.Size = UDim2.new(0.134, 0, 0.143, 0)
+		JumpButton.BackgroundColor3 = Color3.new(0, 1, 0)
+
+		RemoteButton.MouseButton1Down:Connect(function()
+			TPFrame.Visible = false
+			GiveFrame.Visible = false
+			MiscFrame.Visible = false
+
+			RemoteFrame.Visible = true
+		end)
+
+		TPButton.MouseButton1Down:Connect(function()
+			RemoteFrame.Visible = false
+			GiveFrame.Visible = false
+			MiscFrame.Visible = false
+
+			TPFrame.Visible = true
+		end)
+
+		GiveButton.MouseButton1Down:Connect(function()
+			RemoteFrame.Visible = false
+			TPFrame.Visible = false
+			MiscFrame.Visible = false
+
+			GiveFrame.Visible = true
+		end)
+
+		MiscButton.MouseButton1Down:Connect(function()
+			RemoteFrame.Visible = false
+			GiveFrame.Visible = false
+			TPFrame.Visible = false
+
+			MiscFrame.Visible = true
+		end)
+
+		BefriendCat.MouseButton1Down:Connect(function()
+			if not FriendCat then
+				BefriendCat.Text = "Friended"
+				game:GetService("ReplicatedStorage").RemoteEvents.Cattery:FireServer()
+				FriendCat = true
+			end
+		end)
+
+		RemoveTool.MouseButton1Down:Connect(function()
+			for i,v in pairs(game:GetService("Players").LocalPlayer.Backpack:GetChildren()) do
+				if v:IsA("Tool") then
+					v:Destroy()
+				end
+				RemoveTool.Text = "Removed"
+				wait(0.5)
+				RemoveTool.Text = "Remove Tool"
+			end
+		end)
+
+		OpenSafe.MouseButton1Down:Connect(function()
+			game.ReplicatedStorage.RemoteEvents.Safe:FireServer(game:GetService("Workspace").CodeNote.SurfaceGui.TextLabel.Text)
+		end)
+
+		KillEnemies.MouseButton1Down:Connect(function()
+			for i,v in pairs(game.Workspace.BadGuys:GetChildren()) do
+				for i = 1, 50 do
+					game:GetService("ReplicatedStorage").RemoteEvents.HitBadguy:FireServer(v,10)
+					game:GetService("ReplicatedStorage").RemoteEvents.HitBadguy:FireServer(v,996)
+					game:GetService("ReplicatedStorage").RemoteEvents.HitBadguy:FireServer(v,9)
+					game:GetService("ReplicatedStorage").RemoteEvents.HitBadguy:FireServer(v,8)
+					game:GetService("ReplicatedStorage").RemoteEvents.HitBadguy:FireServer(v,996)
+				end
+			end
+			KillEnemies.Text = "Killed"
+			wait(0.5)
+			KillEnemies.Text = "Kill Enemies"
+		end)
+
+		House.MouseButton1Down:Connect(function()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-36, 3, -200)
+		end)
+
+		Bassement.MouseButton1Down:Connect(function()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(71, -15, -163)
+		end)
+
+		BossRoom.MouseButton1Down:Connect(function()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-39, -287, -1480)
+		end)
+
+		Attic.MouseButton1Down:Connect(function()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-16, 35, -220)
+		end)
+
+		Store.MouseButton1Down:Connect(function()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-422, 3, -121)
+		end)
+
+		Sewer.MouseButton1Down:Connect(function()
+			game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(129, 3, -125)
+		end)
+
+		Heal.MouseButton1Down:Connect(function()
+			if FriendCat then
+				for i = 1, 200 do
+					wait(0.0001)
+					local A_1 = "Cat"
+					local Event = game:GetService("ReplicatedStorage").RemoteEvents.Energy
+					Event:FireServer(A_1)
+				end
+			else
+				BefriendCat.Text = "Friended"
+				game:GetService("ReplicatedStorage").RemoteEvents.Cattery:FireServer()
+				FriendCat = true
+				for i = 1, 200 do
+					wait(0.0001)
+					game:GetService("ReplicatedStorage").RemoteEvents.Energy:FireServer("Cat")
+				end
+			end
+		end)
+
+		Cola.MouseButton1Down:Connect(function()
+			for Amount = 1, Amount do
+				game.ReplicatedStorage.RemoteEvents.GiveTool:FireServer("BloxyCola")
+			end
+		end)
+
+		Apple.MouseButton1Down:Connect(function()
+			for Amount = 1, Amount do
+				game.ReplicatedStorage.RemoteEvents.GiveTool:FireServer("Apple")
+			end
+		end)
+
+		Medkit.MouseButton1Down:Connect(function()
+			game.ReplicatedStorage.RemoteEvents.GiveTool:FireServer("MedKit")
+		end)
+
+		Lolipop.MouseButton1Down:Connect(function()
+			game.ReplicatedStorage.RemoteEvents.GiveTool:FireServer("Lollipop")
+		end)
+
+		Chips.MouseButton1Down:Connect(function()
+			game.ReplicatedStorage.RemoteEvents.GiveTool:FireServer("Chips")
+		end)
+
+		Key.MouseButton1Down:Connect(function()
+			game.ReplicatedStorage.RemoteEvents.GiveTool:FireServer("Key")
+		end)
+
+		Teddy.MouseButton1Down:Connect(function()
+			game.ReplicatedStorage.RemoteEvents.GiveTool:FireServer("TeddyBloxpin")
+		end)
+
+		Sword.MouseButton1Down:Connect(function()
+			game.ReplicatedStorage.RemoteEvents.GiveTool:FireServer("LinkedSword")
+		end)
+
+		Plank.MouseButton1Down:Connect(function()
+			if not game.Players.LocalPlayer.Backpack:FindFirstChild("Plank") or not game.Workspace:FindFirstChild(game.Players.LocalPlayer.Name):FindFirstChild("Plank") then
+				game.ReplicatedStorage.RemoteEvents.GiveTool:FireServer("Plank")
+			end
+		end)
+
+		Cookie.MouseButton1Down:Connect(function()
+			for Amount = 1, Amount do
+				game.ReplicatedStorage.RemoteEvents.GiveTool:FireServer("Cookie")
+			end
+		end)
+
+		AmountButton.MouseButton1Down:Connect(function()
+			Amount = AmountTextBox.Text
+		end)
+
+		HealInALoop.MouseButton1Down:Connect(function()
+			if HealLoop then
+				HealLoop = false
+			else
+				if FriendCat then
+					game:GetService("RunService").Heartbeat:Connect(function()
+						game:GetService("ReplicatedStorage").RemoteEvents.Energy:FireServer("Cat")
+					end)
+				else
+					BefriendCat.Text = "Friended"
+					game:GetService("ReplicatedStorage").RemoteEvents.Cattery:FireServer()
+					FriendCat = true
+					return
+				end
+			end
+		end)
+
+		SpeedButton.MouseButton1Down:Connect(function()
+			game.Workspace:WaitForChild(game.Players.LocalPlayer.Name):WaitForChild("Humanoid").WalkSpeed = SpeedTextBox.Text
+		end)
+
+		JumpButton.MouseButton1Down:Connect(function()
+			game.Workspace:WaitForChild(game.Players.LocalPlayer.Name):WaitForChild("Humanoid").UseJumpPower = true
+			game.Workspace:WaitForChild(game.Players.LocalPlayer.Name):WaitForChild("Humanoid").JumpPower = JumpTextBox.Text
+		end)
+
+		Sprint.MouseButton1Down:Connect(function()
+			if not SprintV then
+				game.Players.LocalPlayer:GetMouse().KeyDown:connect(function(key)
+					key = string.lower(key)
+					if string.byte(key) == 48 then
+						running = true
+						local keyConnection = game.Players.LocalPlayer:GetMouse().KeyUp:connect(function (key)
+							if string.byte(key) == 48 then
+								running = false
+							end
+						end)
+						for i = 1,5 do
+							game.Workspace.CurrentCamera.FieldOfView = (70+(i*2))
+							wait()
+						end
+						game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = game.Players.LocalPlayer.Character.Humanoid.WalkSpeed * 2
+						SpeedTextBox.Text = game.Players.LocalPlayer.Character.Humanoid.WalkSpeed
+						repeat wait () until running == false
+						keyConnection:disconnect()
+						game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = game.Players.LocalPlayer.Character.Humanoid.WalkSpeed / 2
+						SpeedTextBox.Text = game.Players.LocalPlayer.Character.Humanoid.WalkSpeed
+						for i = 1,5 do
+							game.Workspace.CurrentCamera.FieldOfView = (80-(i*2))
+							wait()
+						end
+					end
+				end)
+				SprintV = true
+			end
+		end)
+
+		local function updateInput(input)
+			local delta = input.Position - dragStartFrame
+			local position = UDim2.new(StartPosFrame.X.Scale, StartPosFrame.X.Offset + delta.X, StartPosFrame.Y.Scale, StartPosFrame.Y.Offset + delta.Y)
+			game:GetService("TweenService"):Create(Frame, TweenInfo.new(dragSpeedFrame), {Position = position}):Play()
+		end
+		Frame.InputBegan:Connect(function(input)
+			if (input.UserInputType == Enum.UserInputType.MouseButton1) then
+				dragToggleFrame = true
+				dragStartFrame = input.Position
+				StartPosFrame = Frame.Position
+				input.Changed:Connect(function()
+					if input.UserInputState == Enum.UserInputState.End then
+						dragToggleFrame = false
+					end
+				end)
+			end
+		end)
+		UIS.InputChanged:Connect(function(input)
+			if input.UserInputType == Enum.UserInputType.MouseMovement then
+				if dragToggleFrame then
+					updateInput(input)
+				end
+			end
+		end)
+		if not Players.LocalPlayer.PlayerGui:FindFirstChild("HelpKey") then
+			local ScreenGui = Instance.new("ScreenGui")
+			ScreenGui.Parent = Players.LocalPlayer.PlayerGui
+			ScreenGui.Name = "HelpKey"
+			local Frame = Instance.new("Frame")
+			Frame.Parent = ScreenGui
+			Frame.Name = "Frame"
+			Frame.Size = UDim2.new(0.23, 0 , 0.142, 0)
+			Frame.Position = UDim2.new(0.385, 0, 0.429, 0)	
+			local CloseButton = Instance.new("TextButton")
+			CloseButton.Parent = Frame
+			CloseButton.Name = "Button"
+			CloseButton.Text = "X"
+			CloseButton.TextScaled = true
+			CloseButton.BackgroundColor3 = Color3.new(1, 0, 0)
+			CloseButton.Size = UDim2.new(0.157, 0, 0.5, 0)
+			CloseButton.Position = UDim2.new(1, 0, -0.5, 0)
+			local Text = Instance.new("TextLabel")
+			Text.Parent = Frame
+			Text.Text = 'The key to hide the Gui is "V"'
+			Text.TextScaled = true
+			Text.BackgroundColor3 = Color3.new(1, 1, 1)
+			Text.Position = UDim2.new(0, 0, 0, 0)
+			Text.Size = UDim2.new(1, 0, 1, 0)
+		end
+		Players.LocalPlayer.PlayerGui:FindFirstChild("HelpKey").Frame.Button.MouseButton1Down:Connect(function()
+			Players.LocalPlayer.PlayerGui:FindFirstChild("HelpKey").Frame.Visible = false
+		end)
+		UIS.InputBegan:Connect(function(UserInput)
+			if UserInput.UserInputType == Enum.UserInputType.Keyboard and UserInput.KeyCode == Enum.KeyCode.V then
+				if InputKeyHold then
+					Frame.Visible = false
+					InputKeyHold = false
+				else
+					Frame.Visible = true
+					InputKeyHold = true
+				end
+			end
+		end)
+	end
