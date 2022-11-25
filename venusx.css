@@ -1,0 +1,143 @@
+body {
+    background-color: #333;
+    margin: 0;
+    height: 100%;
+    width: 100%;
+}
+
+body header {
+    display: flex;
+    width: 100%;
+    height: 16vh;
+    background-color: #444;
+    border-radius: 0 0 10px 10px;
+    border-bottom: 2px solid #555;
+}
+
+#codeContent {
+    display: flex;
+    width: 30vh;
+    height: 20vh;
+    align-items: center;
+}
+
+.main {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    margin-top: 50px;
+    position: relative;
+}
+
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #444;
+    height: 20%;
+    width: 100%;
+    border-radius: 5px 5px 0 0;
+    border-left: 2px solid #666;
+    border-top: 2px solid #666;
+    border-right: 2px solid #666;
+    margin: 0;
+}
+
+#codeContener div a, .title a{
+    display: flex;
+    margin: 0;
+    width: 20%;
+    height: 100%;
+    align-items: center;
+}
+
+#codeContener div a img, .title a img{
+    display: flex;
+    border-radius: 100px;
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+    width: 80%;
+    border: 2px solid #666;
+}
+
+.title p{
+    display: flex;
+    font-family: Arial;
+    margin: 0;
+    width: 75%;
+    height: 95%;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    font-size: xx-large;
+}
+
+.contentContener {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    width: 100%;
+    height: 50vh;
+    background-color: #666;
+    border-radius: 0 0 5px 5px;
+    border-left: 2px solid #777;
+    border-bottom: 2px solid #777;
+    border-right: 2px solid #777;
+}
+
+.content {
+    display: block;
+    margin: 0;
+    width: 95%;
+    height: 90%;
+    align-items: flex-end;
+}
+
+.content div, #content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: calc(95% + 2px);
+    height: 70%;
+    background-color: #444;
+    border-radius: 0 0 10px 10px;
+    border: 5px solid #555;
+}
+
+.content div p, #content p {
+    display: flex;
+    margin: 0;
+    margin-left: 5px;
+    font-family: Arial;
+    width: 100%;
+    height: 100%;
+    align-items: flex-start;
+    color: white;
+    font-size: medium;
+}
+
+.content header {
+    display: flex;
+    width: calc(100% - 19px) ;
+    height: 20%;
+    margin: 0;
+    background-color: #555;
+    border-radius: 10px 10px 0 0 ;
+    border-top: 5px solid #666;
+    justify-content: center;
+}
+.content header h1{
+    display: flex;
+    font-family: Arial;
+    margin: 0;
+    align-items: center;
+    color: white;
+    font-size: medium;
+}
